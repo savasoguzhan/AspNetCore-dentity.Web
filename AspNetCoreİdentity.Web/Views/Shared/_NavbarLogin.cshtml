@@ -1,0 +1,33 @@
+﻿@if (User.Identity!.IsAuthenticated)
+{
+    <div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                @User.Identity.Name
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" asp-controller="Member" asp-action="Logout">Cikis Yap</a></li>
+                <li><a class="dropdown-item" asp-controller="Member" asp-action="Index">Profil</a></li>
+                <li><a class="dropdown-item" asp-controller="Member" asp-action="PasswordChange">Sifre Degistir</a></li>
+                <li><a class="dropdown-item" asp-controller="Member" asp-action="Claims">Claim</a></li>
+                @{
+                    if(User.HasClaim(x =>x.Value=="admin"))
+                    {
+                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
+                    }
+                }
+
+
+                <li><a class="dropdown-item" asp-controller="Member" asp-action="UserEdit">Kullanici Guncelle</a></li>
+
+            </ul>
+        </div>
+    </div>
+}
+else
+{
+    <div>
+        <a class="btn btn-outline-success mx-2" asp-controller="Home" asp-action="SignUp">Uye Ol</a>
+        <a class="btn btn-outline-success" asp-controller="Home" asp-action="SignIn">Giris</a>
+    </div>
+}

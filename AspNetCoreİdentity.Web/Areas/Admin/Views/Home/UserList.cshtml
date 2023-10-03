@@ -1,0 +1,36 @@
+﻿@using AdminModel=AspNetCoreİdentity.Web.Areas.Admin.Models;
+
+@{
+    ViewData["Title"] = "UserList";
+}
+
+@model List<AdminModel.UserViewModel>
+
+<h1>UserList</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Roller</th>
+            <th>Rol Islemleri</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.UserId</td>
+                <td>@item.UserName</td>
+                <td>@item.UserEmail</td>
+                <td> <user-role-names user-id="@item.UserId" ></user-role-names></td>
+                <td>
+                    <a  asp-action="AssingRoleToUser" asp-controller="Role" asp-route-id="@item.UserId" asp-area="admin"> Rol Ata</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

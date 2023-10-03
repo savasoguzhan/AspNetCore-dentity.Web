@@ -1,0 +1,33 @@
+﻿@using AspNetCoreİdentity.Web.Areas.Admin.Models;
+
+@{
+    ViewData["Title"] = "Index";
+}
+<a class="btn btn-outline-primary" asp-controller="Role" asp-action="RoleAdd" asp-area="Admin">Rol Ekle</a>
+<h1>Index</h1>
+@model List<RoleViewModel>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>
+                    <a asp-area="Admin" asp-controller="Role" asp-action="RoleUpdate" asp-route-id="@item.Id">Guncelle</a>
+                    <a asp-area="Admin" asp-controller="Role" asp-action="RoleDelete" asp-route-id="@item.Id">Sil</a>
+                    
+                </td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
