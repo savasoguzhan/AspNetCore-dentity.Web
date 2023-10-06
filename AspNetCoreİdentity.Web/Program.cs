@@ -1,14 +1,17 @@
 using AspNetCore›dentity.Web.ClaimProvider;
 using AspNetCore›dentity.Web.Extension;
-using AspNetCore›dentity.Web.Models;
-using AspNetCore›dentity.Web.OptionsModel;
+using AspNetCore›dentity.Repository.Models;
+using AspNetCore›dentity.Core.OptionsModel;
 using AspNetCore›dentity.Web.Requirement;
+using AspNetCore›dentity.Repository.SeedData;
 using AspNetCore›dentity.Web.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
+using AspNetCore›dentity.Repository.Models;
+using AspNetCore›dentity.Service.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +26,7 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IClaimsTransformation, UserClaimProvider>();
 builder.Services.AddScoped<IAuthorizationHandler, ExchangeExpireRequirementHandler>();
 builder.Services.AddScoped<IAuthorizationHandler, ViolenceRequirementHandler>();
+builder.Services.AddScoped<IMemberService, MemberService>();
 
 builder.Services.AddAuthorization(opt =>
 {
@@ -62,6 +66,13 @@ builder.Services.ConfigureApplicationCookie(option =>
 builder.Services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Directory.GetCurrentDirectory()));
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<UygulamaRole>>();
+
+    PermissionSeed.Seed(roleManager);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

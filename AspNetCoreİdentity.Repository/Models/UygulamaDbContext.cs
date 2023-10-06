@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using AspNetCoreİdentity.Core.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace AspNetCoreİdentity.Web.Models
+namespace AspNetCoreİdentity.Repository.Models
 {
     public class UygulamaDbContext : IdentityDbContext<UygulamaUser, UygulamaRole, string>
     {

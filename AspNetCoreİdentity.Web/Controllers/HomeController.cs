@@ -1,11 +1,14 @@
 ﻿using AspNetCoreİdentity.Web.Extension;
-using AspNetCoreİdentity.Web.Models;
+using AspNetCoreİdentity.Repository.Models;
 using AspNetCoreİdentity.Web.Services;
-using AspNetCoreİdentity.Web.ViewModels;
+using AspNetCoreİdentity.Core.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Security.Claims;
+using AspNetCoreİdentity.Core.Models;
+using AspNetCoreİdentity.Repository.Models;
+using AspNetCoreİdentity.Service.Services;
 
 namespace AspNetCoreİdentity.Web.Controllers
 {

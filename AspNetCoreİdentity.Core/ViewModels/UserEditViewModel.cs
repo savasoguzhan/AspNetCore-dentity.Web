@@ -1,7 +1,8 @@
-﻿using AspNetCoreİdentity.Web.Models;
+﻿using AspNetCoreİdentity.Core.Models;
+using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
-namespace AspNetCoreİdentity.Web.ViewModels
+namespace AspNetCoreİdentity.Core.ViewModels
 {
     public class UserEditViewModel
     {

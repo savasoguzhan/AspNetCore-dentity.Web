@@ -1,12 +1,13 @@
 ﻿using AspNetCoreİdentity.Web.Extension;
-using AspNetCoreİdentity.Web.Models;
-using AspNetCoreİdentity.Web.ViewModels;
+using AspNetCoreİdentity.Repository.Models;
+using AspNetCoreİdentity.Core.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.FileProviders;
+using AspNetCoreİdentity.Core.Models;
 
 namespace AspNetCoreİdentity.Web.Controllers
 {

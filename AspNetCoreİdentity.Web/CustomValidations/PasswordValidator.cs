@@ -1,4 +1,5 @@
-﻿using AspNetCoreİdentity.Web.Models;
+﻿using AspNetCoreİdentity.Core.Models;
+using AspNetCoreİdentity.   Repository.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace AspNetCoreİdentity.Web.CustomValidations

@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using AspNetCoreİdentity.Core.Models;
+using Microsoft.AspNetCore.Identity;
 
-namespace AspNetCoreİdentity.Web.Models
+namespace AspNetCoreİdentity.Repository.Models
 {
     public class UygulamaUser : IdentityUser
     {

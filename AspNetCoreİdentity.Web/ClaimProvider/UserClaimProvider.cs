@@ -1,4 +1,5 @@
-﻿using AspNetCoreİdentity.Web.Models;
+﻿using AspNetCoreİdentity.Core.Models;
+using AspNetCoreİdentity.Repository.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
